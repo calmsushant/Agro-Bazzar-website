@@ -1,0 +1,218 @@
+/********** Agro Bazzar – Modern Template CSS **********/
+
+:root {
+    --primary: #2e7d32;      /* Agro Green */
+    --secondary: #f9a825;    /* Agro Yellow */
+    --light: #f1f8e9;
+    --dark: #1b5e20;
+    --shadow-soft: 0 12px 35px rgba(0,0,0,0.12);
+    --shadow-hover: 0 18px 45px rgba(0,0,0,0.18);
+}
+
+/* Global */
+body {
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+/* Buttons – lift + glow */
+.btn {
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all .35s ease;
+}
+
+.btn-primary,
+.btn-secondary {
+    color: #fff;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+}
+
+/* Square buttons */
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.btn-square { width: 36px; height: 36px; }
+.btn-sm-square { width: 28px; height: 28px; }
+.btn-lg-square { width: 46px; height: 46px; }
+
+/* Back to top */
+.back-to-top {
+    position: fixed;
+    right: 30px;
+    bottom: 20px;
+    z-index: 99;
+    display: none;
+}
+
+/* Navbar */
+.navbar-dark .navbar-nav .nav-link {
+    padding: 28px 15px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    text-transform: uppercase;
+    transition: all .3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    background: var(--secondary);
+    color: var(--dark);
+}
+
+/* Hero / Carousel text animation */
+.carousel-caption h1,
+.carousel-caption h3 {
+    animation: fadeUp .9s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Banner overlap */
+@media (min-width: 991.98px) {
+    .banner {
+        margin-top: -90px;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+/* Service cards – floating */
+.service-item {
+    box-shadow: var(--shadow-soft);
+    transition: all .4s ease;
+    border-radius: 12px;
+}
+
+.service-item:hover {
+    background: var(--primary) !important;
+    color: var(--light);
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Icons – gradient + rotate */
+.about i,
+.service-item i {
+    background-image: linear-gradient(var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: transform .4s ease;
+}
+
+.service-item:hover i {
+    transform: scale(1.15) rotate(6deg);
+}
+
+/* Products */
+.product-item {
+    padding: 0 30px 30px;
+    border-radius: 12px;
+    transition: all .4s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.product-item .btn-action {
+    position: absolute;
+    width: 100%;
+    bottom: -40px;
+    opacity: 0;
+    transition: .4s ease;
+}
+
+.product-item:hover .btn-action {
+    bottom: 0;
+    opacity: 1;
+}
+
+.product-item h5 {
+    transition: .3s;
+}
+
+.product-item:hover h5 {
+    opacity: 0;
+}
+
+/* Blog images zoom */
+.blog-item img {
+    transition: transform .5s ease;
+}
+
+.blog-item:hover img {
+    transform: scale(1.15);
+}
+
+/* Blog overlay */
+.blog-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(rgba(0,0,0,0), rgba(46,125,50,0.95));
+}
+
+/* Testimonials */
+.bg-testimonial {
+    background: url(../img/testimonial.jpg) center/cover no-repeat;
+}
+
+.testimonial-carousel {
+    background: rgba(46,125,50,.8);
+    border-radius: 14px;
+}
+
+/* Footer */
+.bg-footer {
+    background:
+        linear-gradient(rgba(46,125,50,.85), rgba(46,125,50,.85)),
+        url(../img/footer.png) center bottom no-repeat;
+    background-size: contain;
+}
+
+@media (min-width: 991.98px) {
+    .bg-footer {
+        margin-top: 90px;
+    }
+}
+
+/* Section headings underline animation */
+h1::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--secondary);
+    margin-top: 12px;
+    animation: lineGrow .6s ease;
+}
+
+@keyframes lineGrow {
+    from { width: 0; }
+    to { width: 60px; }
+}
